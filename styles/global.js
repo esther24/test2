@@ -39,5 +39,14 @@ export const globalStyles = StyleSheet.create({
       backgroundColor:'pink',
       fontSize:24,
       color: 'black',
+    },
+    input:{
+      borderWidth:1,
+      borderColor: 'black',
+      padding: 20,
+      fontSize: 18,
+      borderRadius:6,
+      color: 'black',
+     marginBottom:12,
     }
     });

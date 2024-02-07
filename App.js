@@ -61,15 +61,34 @@ const DrawerNavi= ()=> {
     headerTintColor: 'purple',
       headerTitleStyle: {
         fontWeight: 'bold',
-        alignItems: 'center',
       },
-
-      
+      headerTitleAlign: 'center',
           }}
     
     >
-      <Drawer.Screen name="Home" component={StackNavi} options={{headerShown: false}}/>
-      <Drawer.Screen name="Contact" component={Contact}/>
+      <Drawer.Screen name="Home" component={StackNavi} 
+      options={
+        
+        {headerShown: false,
+        drawerIcon: () =>{
+          return(
+           <Icon 
+            name = "home"
+            size = {30}
+            color = "black" /> )}
+          }} />
+      <Drawer.Screen name="Contact" component={Contact}
+            options={
+              {
+              drawerIcon: () =>{
+                return(
+                 <Icon 
+                  name = "mail"
+                  size = {30}
+                  color = "black" /> )}
+                }}
+      
+      />
     </Drawer.Navigator>
   );
 }
