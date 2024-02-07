@@ -11,7 +11,8 @@ return (
 <View style={globalStyles.container}>
 <Formik
 initialValues={{name: '', email: '', contact: ''}}
-onSubmit={(values) => {
+onSubmit={(values , actions) => {
+    actions.resetForm();
     console.log(values);
 }}
 > 

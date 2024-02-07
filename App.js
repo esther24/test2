@@ -8,7 +8,7 @@ import About from './screens/about'
 import ProjectDetails from './screens/ProjectDetails';
 import Contact from './screens/contact'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer , useNavigation , DrawerActions} from '@react-navigation/native';
+import { NavigationContainer , useNavigation , DrawerActions, StackActions} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Header from "./shared/header";
 
@@ -18,9 +18,11 @@ const Drawer = createDrawerNavigator();
 
 
 const StackNavi = () =>{
+
   const navi = useNavigation(); 
   return(
     <Stack.Navigator
+    //initialRouteName="EC"
     screenOptions={{
       headerStyle: {
             backgroundColor: '#fff',
@@ -52,8 +54,23 @@ const StackNavi = () =>{
 }
 
 const DrawerNavi= ()=> {
+  const navigation = useNavigation()
+  const resetStack =() =>{
+    // navigation.reset({
+    //   index:0,
+    //   routes: [{name: 'EC'}]
+
+    // });
+    navigation.dispatch(StackActions.popToTop())
+  };
+  //const resetNavigation = (navigation) => navigation.popToTop();
+
+  // const resetStack =() =>{
+  //   navigation.navigate('EC')
+  // }
   return(
     <Drawer.Navigator 
+   
     screenOptions={{
       headerStyle: {
             backgroundColor: '#fff',
@@ -63,20 +80,26 @@ const DrawerNavi= ()=> {
         fontWeight: 'bold',
       },
       headerTitleAlign: 'center',
+     
+   
           }}
+
     
     >
       <Drawer.Screen name="Home" component={StackNavi} 
       options={
-        
         {headerShown: false,
         drawerIcon: () =>{
           return(
            <Icon 
             name = "home"
             size = {30}
-            color = "black" /> )}
-          }} />
+            color = "black" /> )},
+            //onPress:resetStack
+          }}
+          
+          />
+            
       <Drawer.Screen name="Contact" component={Contact}
             options={
               {

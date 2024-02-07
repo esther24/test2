@@ -21,6 +21,20 @@ export const globalStyles = StyleSheet.create({
     text:{
       color: 'black',
       fontSize: 18,
+ 
+    },
+    deetstext:{
+      color: 'black',
+      fontSize: 18,
+      padding:8,
+      marginTop:2,
+    },
+    deetshead:{
+      fontWeight: 'bold',
+      color: 'black',
+      padding:10,
+      fontSize: 18,
+      textAlign: 'center'
     },
     para : {
         marginVertical:8,
