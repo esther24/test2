@@ -1,16 +1,20 @@
 import 'react-native-gesture-handler';
-import React from "react";
+import React, { useRef } from "react";
 import Home from './screens/home';
-// import Navigator from './routes/homestack';
+
 import Icon from 'react-native-vector-icons/Entypo'
+import MyIcon from 'react-native-vector-icons/Ionicons'
+//screens
 import Project from './screens/projects'
 import About from './screens/about'
 import ProjectDetails from './screens/ProjectDetails';
 import Contact from './screens/contact'
+import ApiCall from './screens/api';
+//navi
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer , useNavigation , DrawerActions, StackActions} from '@react-navigation/native';
+import { NavigationContainer , useNavigation , DrawerActions, StackActions ,NavigationActions} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Header from "./shared/header";
+
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -20,9 +24,11 @@ const Drawer = createDrawerNavigator();
 const StackNavi = () =>{
 
   const navi = useNavigation(); 
+
+
   return(
     <Stack.Navigator
-    //initialRouteName="EC"
+  
     screenOptions={{
       headerStyle: {
             backgroundColor: '#fff',
@@ -40,8 +46,7 @@ const StackNavi = () =>{
         onPress = {()=> navi.dispatch(DrawerActions.openDrawer())}
         />)
 
-      }
-      
+      }   
           }}
     >
     <Stack.Screen name="EC" component={Home} />
@@ -54,20 +59,10 @@ const StackNavi = () =>{
 }
 
 const DrawerNavi= ()=> {
-  const navigation = useNavigation()
-  const resetStack =() =>{
-    // navigation.reset({
-    //   index:0,
-    //   routes: [{name: 'EC'}]
 
-    // });
-    navigation.dispatch(StackActions.popToTop())
-  };
-  //const resetNavigation = (navigation) => navigation.popToTop();
 
-  // const resetStack =() =>{
-  //   navigation.navigate('EC')
-  // }
+  
+
   return(
     <Drawer.Navigator 
    
@@ -95,7 +90,7 @@ const DrawerNavi= ()=> {
             name = "home"
             size = {30}
             color = "black" /> )},
-            //onPress:resetStack
+        
           }}
           
           />
@@ -107,6 +102,19 @@ const DrawerNavi= ()=> {
                 return(
                  <Icon 
                   name = "mail"
+                  size = {30}
+                  color = "black" /> )}
+                }}
+      
+      />
+
+<Drawer.Screen name="Api" component={ApiCall}
+            options={
+              {
+              drawerIcon: () =>{
+                return(
+                 <MyIcon 
+                  name = "server"
                   size = {30}
                   color = "black" /> )}
                 }}

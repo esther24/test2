@@ -62,5 +62,9 @@ export const globalStyles = StyleSheet.create({
       borderRadius:6,
       color: 'black',
      marginBottom:12,
+    },
+    apiList:{
+      flex:1,
+      paddingTop:10
     }
     });
