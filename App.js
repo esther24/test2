@@ -10,20 +10,21 @@ import About from './screens/about'
 import ProjectDetails from './screens/ProjectDetails';
 import Contact from './screens/contact'
 import ApiCall from './screens/api';
+import SearchApi from './screens/search';
 //navi
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer , useNavigation , DrawerActions, StackActions ,NavigationActions} from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator , CommonActions} from '@react-navigation/native-stack';
+import { SearchBar } from 'react-native-screens';
 
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 
-
 const StackNavi = () =>{
 
-  const navi = useNavigation(); 
+  const navigation = useNavigation(); 
 
 
   return(
@@ -43,7 +44,7 @@ const StackNavi = () =>{
         name = "menu"
         size = {30}
         color = "black"
-        onPress = {()=> navi.dispatch(DrawerActions.openDrawer())}
+        onPress = {()=> navigation.dispatch(DrawerActions.openDrawer())}
         />)
 
       }   
@@ -59,9 +60,9 @@ const StackNavi = () =>{
 }
 
 const DrawerNavi= ()=> {
-
-
+  const navi = useNavigation();
   
+ 
 
   return(
     <Drawer.Navigator 
@@ -81,19 +82,23 @@ const DrawerNavi= ()=> {
 
     
     >
-      <Drawer.Screen name="Home" component={StackNavi} 
-      options={
-        {headerShown: false,
-        drawerIcon: () =>{
-          return(
-           <Icon 
-            name = "home"
-            size = {30}
-            color = "black" /> )},
+   <Drawer.Screen
+        name="Home"
+        component={StackNavi}
+        options={{
+          headerShown: false,
+          drawerIcon: () => (
+            <Icon name="home" size={30} color="black" />
+          ),
+          drawerLabel: 'Home',
+        }}
         
+          onPress={ ()=>{
+            console.log("hello")
+            navi.dispatch(StackActions.pop(1))
           }}
-          
-          />
+        
+      />
             
       <Drawer.Screen name="Contact" component={Contact}
             options={
@@ -115,6 +120,19 @@ const DrawerNavi= ()=> {
                 return(
                  <MyIcon 
                   name = "server"
+                  size = {30}
+                  color = "black" /> )}
+                }}
+      
+      />
+
+<Drawer.Screen name="Search" component={SearchApi}
+            options={
+              {
+              drawerIcon: () =>{
+                return(
+                 <MyIcon 
+                  name = "search"
                   size = {30}
                   color = "black" /> )}
                 }}

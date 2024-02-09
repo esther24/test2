@@ -2,6 +2,7 @@ import React from "react";
 import {StyleSheet, View, Text, Button} from 'react-native';
 import { globalStyles } from "../styles/global";
 import { Formik } from "formik";
+import Card from "../shared/card";
 import { TextInput } from "react-native-gesture-handler";
 
 
@@ -20,8 +21,11 @@ onSubmit={(values , actions) => {
         (Formikprops)=>{
 return(
 <View>
+    <Card>
+    <Text style={{textAlign:"center" , color:"black", padding:20, fontSize:18, fontWeight:"bold"}}>Contact Me!</Text>
     <TextInput style={globalStyles.input}
     placeholder="Enter Name"
+    placeholderTextColor="black"
     //two way data binding
     onChangeText={Formikprops.handleChange('name')} //updates the name prop
     value={Formikprops.values.name}  //here we set the value of the textinput from initial to new
@@ -29,12 +33,14 @@ return(
    
     <TextInput style={globalStyles.input}
     placeholder="Enter Email"
+    placeholderTextColor="black"
     //two way data binding
     onChangeText={Formikprops.handleChange('email')} //updates the name prop
     value={Formikprops.values.email}  //here we set the value of the textinput from initial to new
     /> 
     <TextInput style={globalStyles.input}
     placeholder="Enter Contact Number"
+    placeholderTextColor="black"
     //two way data binding
     onChangeText={Formikprops.handleChange('contact')} //updates the name prop
     value={Formikprops.values.contact}  //here we set the value of the textinput from initial to new
@@ -42,6 +48,7 @@ return(
     /> 
 
     <Button title="Ping" color="purple"  onPress={Formikprops.handleSubmit}/>
+    </Card>
 </View>)
         }
     }

@@ -66,5 +66,11 @@ export const globalStyles = StyleSheet.create({
     apiList:{
       flex:1,
       paddingTop:10
+    },
+    search:{
+      textAlign: "center",
+      color:"black",
+      fontWeight:"bold",
+      marginTop:300,
     }
     });
