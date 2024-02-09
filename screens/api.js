@@ -8,16 +8,17 @@ import Card from "../shared/card";
 
 
 
+
 export default function ApiCall() {
     const [user,setUser] = useState();
-    const fetchdata = async() =>{
-        const res = await fetch('https://jsonplaceholder.typicode.com/users')
+    const fetchdata = async(url) =>{
+        const res = await fetch(url)
         const data = await res.json()
         setUser(data)
     };
 
     useEffect(()=>{
-        fetchdata();
+        fetchdata("https://jsonplaceholder.typicode.com/users");
     },[])
 
     const pressHandler =(id) =>{

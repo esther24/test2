@@ -7,13 +7,15 @@ import { ActivityIndicator } from "react-native-paper";
 
 
 
+
+
 export default function SearchFilter({blog}) {
 
-    console.log("blogs deconstructed: ",blog)
-    const [datas, setDatas] = useState([]);
+    //console.log("blogs deconstructed: ",blog)
+    const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error,setError] = useState(null);
-    const [fullData,setFullData] = useState([])
+    
 
 
     //const limit = 10;
@@ -22,8 +24,8 @@ export default function SearchFilter({blog}) {
         try{
             const res =  await fetch(url);
             const newData = await res.json();
-            setDatas(newData);
-            console.log("Fetched:",newData);
+            setData(newData);
+            // console.log("Fetched:",newData);
             setIsLoading(false)
 
         }catch (error){
@@ -38,9 +40,6 @@ export default function SearchFilter({blog}) {
         fetchData("https://jsonplaceholder.typicode.com/posts?userId=1")
     },[])
 
-    useEffect(()=>{
-        console.log("Data is set")
-    },[datas])
     
     if(isLoading){
         return(
@@ -53,7 +52,7 @@ export default function SearchFilter({blog}) {
     if(error) {
         return(
             <View style={{marginTop:300,justifyContent:"center", alignItems:"center"}}>
-                <Text>Error in fetching..</Text>
+                <Text style={{color:"black"}}>Error in fetching..</Text>
             </View>
         )
     }
@@ -62,11 +61,11 @@ export default function SearchFilter({blog}) {
         <View>              
             <Text style={globalStyles.search}>Search Blogs!</Text>        
         </View>      
-          );}  
+        );}  
           
 return (
 <View>
-    <FlatList data={datas} 
+    <FlatList data={data} 
     keyExtractor={(item)=>item.id.toString()}
     renderItem={({ item }) => {  
          
@@ -79,7 +78,6 @@ return (
         ); }}}
     
     />
- 
 </View>
 
 )

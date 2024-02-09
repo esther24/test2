@@ -16,7 +16,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer , useNavigation , DrawerActions, StackActions ,NavigationActions} from '@react-navigation/native';
 import { createNativeStackNavigator , CommonActions} from '@react-navigation/native-stack';
 import { SearchBar } from 'react-native-screens';
-
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']);
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
