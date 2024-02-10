@@ -11,6 +11,7 @@ import ProjectDetails from './screens/ProjectDetails';
 import Contact from './screens/contact'
 import ApiCall from './screens/api';
 import SearchApi from './screens/search';
+
 //navi
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer , useNavigation , DrawerActions, StackActions ,NavigationActions} from '@react-navigation/native';
@@ -140,6 +141,9 @@ const DrawerNavi= ()=> {
                 }}
       
       />
+
+  
+
     </Drawer.Navigator>
   );
 }
