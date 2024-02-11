@@ -31,7 +31,7 @@ const ValidateSchema = yup.object({
 export default function ContactForm() {
 
 return (
-<View style={globalStyles.container}>
+<View >
 <Formik
 initialValues={{uname: '', email: '', contact: ''}}
 validationSchema={ValidateSchema}

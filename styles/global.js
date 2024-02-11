@@ -5,22 +5,30 @@ export const globalStyles = StyleSheet.create({
     container: {
       flex:1, //so that container views take availble space
       backgroundColor: ' #f1f1f1',
-      paddingtop: 40,
+      paddingBottom: 20,
       paddingHorizontal: 20,
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    aboutcontainer: {
+      flex:1, //so that container views take availble space
+      backgroundColor: ' #f1f1f1',
+      marginTop:10,
+      paddingHorizontal:10,
+      paddingBottom:5
     },
     cardcontainer: {
       flex:1, //so that container views take availble space
       backgroundColor: ' #f1f1f1',
       paddingtop: 40,
-      marginTop:20,
+      // marginTop:20,
       paddingHorizontal: 20,
   
     },
     text:{
       color: 'black',
       fontSize: 18,
+      textAlign:'justify'
  
     },
     deetstext:{
@@ -36,15 +44,18 @@ export const globalStyles = StyleSheet.create({
       fontSize: 18,
       textAlign: 'center'
     },
-    para : {
-        marginVertical:8,
-        lineHeight:20,
+    homeImg : {
+      flexDirection: 'row',
+      width:250,
+      marginTop:1,
+      height:250
     },
     about:{
       color: 'black',
-   
-      fontSize: 18,
-      alignItems: 'center',
+      fontSize: 20,
+      paddingTop:10,
+      fontWeight:'bold',
+      textAlign: 'center',
       justifyContent: 'center',
     },
     item:{
@@ -79,5 +90,21 @@ export const globalStyles = StyleSheet.create({
       marginBottom: 10,
       marginTop: 6,
       textAlign:'center'
-    }
+    },
+    img:{
+      alignSelf: 'center',
+      paddingTop:20,
+      marginTop: 20,
+      borderTopWidth:1,
+      borderTopColor: '#eee',
+      width:250,
+      height:150
+    },
+    rating:{
+      flexDirection:'row',
+      // paddingHorizontal:20,
+      marginHorizontal:55,
+
+    },
+  
     });

@@ -11,6 +11,7 @@ import ProjectDetails from './screens/ProjectDetails';
 import Contact from './screens/contact'
 import ApiCall from './screens/api';
 import SearchApi from './screens/search';
+import Skills from './screens/skills';
 
 //navi
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -57,7 +58,7 @@ const StackNavi = () =>{
     <Stack.Screen name="About" component={About} />
     <Stack.Screen name="My Projects" component={Project}/>
     <Stack.Screen name="Project Details" component={ProjectDetails} />
-    {/* <Stack.Screen name="Contact Me" component={Contact}/> */}
+    <Stack.Screen name="My Skills" component={Skills}/>
     </Stack.Navigator>
   );
 }

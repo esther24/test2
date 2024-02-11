@@ -3,32 +3,46 @@ import {StyleSheet, View, Text, Button} from 'react-native';
 import { globalStyles } from "../styles/global";
 import { useState } from "react";
 
+import Icon from 'react-native-vector-icons/Entypo'
+import Card from "../shared/card";
+
 
 export default function About({navigation}) {
     const pressHandler = () =>{
         console.log("Pressed") ;
         navigation.navigate('My Projects');
     }
-    const [skill ,setSkill] = useState([
-        {skill: 'Python' , key: '1'},
-        {skill: 'SQL' , key: '2'},
-        {skill: 'Web Dev' , key: '3'},
-        {skill: 'AWS' , key: '4'},
-        {skill: 'Mongo' , key: '5'},
-        {skill: 'Excel' , key: '6'},
-        ]);
+
+    const pressDownload = () =>{
+        console.log("Pressed")
+        navigation.navigate('My Skills')
+        
+    }
+
 return (
-<View style={globalStyles.container}>
-    <Text style={globalStyles.about}>
-    I am a pasionate developer who countinuous to learn with every project. Considering my lack of expirence I make up for that with my hunger for learning.
-    <Text>I am keen to expand my knowledge in the field of Data Analytics and Web Development.I strongly believe that its never too late to learn.</Text>
-    <Text>I like to read both books and manga and watch sports like football,f1 and cricket</Text>
-    </Text>
-    <Text></Text>
+<View style={globalStyles.aboutcontainer} >
     <View>
-    <Button  color="purple" title='My Projects' onPress={pressHandler} />
+    <Text  style={globalStyles.about}>A Little About Me..</Text>
+    <Text style={globalStyles.about}>I am Esther Chettiar</Text>
+
+    <Text style={globalStyles.about}><Icon name = "location" size = {15}color = "black" style={marginHorizontal=5} /> Mumbai, IN</Text>
     </View>
-</View>
+    <Card>
+    <Text style={globalStyles.text}>{
+        `\u2043 A pasionate developer who countinuous to learn with every project.
+         \n\u2043 Considering my lack of expirence I make up for that with my hunger for learning.
+        \n\u2043 I am keen to expand my knowledge in the field of Data Analytics and Web Development
+        \n\u2043 I strongly believe that its never too late to learn.
+        \n\u2043 Likes: Reading,organizing,cooking,learning new languages,listening to music.
+        \n\u2043 Interests: Football,f1,cricket,chess,scifi`
+    } </Text>
+    </Card>
+    <Text> </Text>
+    <Button color="purple" title='My Projects' onPress={pressHandler} />
+    <Text> </Text>
+    <Button color="purple" title='Skills' onPress={pressDownload} />
+    </View>
+
 
 
 )

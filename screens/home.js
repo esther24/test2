@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, View, Text ,TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text ,Image} from 'react-native';
 import { globalStyles } from "../styles/global";
 import {Button} from 'react-native'
 
@@ -17,7 +17,10 @@ export default function Home({navigation}) {
 
  return(
     <View style={globalStyles.container}>
-        <Text style={globalStyles.text}>HELLO...</Text>
+        <View>
+        <Image source={require('../assets/home.png')} style={globalStyles.homeImg} />
+        </View>  
+        <Text style={globalStyles.text}>Hello and Welcome...</Text>
         <Text style={globalStyles.text}>I AM ESTHER CHETTIAR!!</Text>
         <Text style={globalStyles.text}>| Web Development | Python | SQL </Text>
         <Text style={globalStyles.text}>| Analytics enthusiast | Anime | Manga</Text>
