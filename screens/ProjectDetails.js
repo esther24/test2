@@ -16,7 +16,7 @@ export default function ProjectDetails({navigation}) {
    
 
 return (
-<ImageBackground source={require('../assets/bg1.jpg')}style={globalStyles.cardcontainer}>
+<ImageBackground source={require('../assets/game_bg.png')}style={globalStyles.cardcontainer}>
 <Card>
     <Text style={globalStyles.deetshead}>{title}</Text>
     <View

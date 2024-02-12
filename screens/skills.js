@@ -1,9 +1,11 @@
 import React from "react";
-import {StyleSheet, View, Text,Button,FlatList,Image} from 'react-native';
+import {StyleSheet, View, Text,Button,FlatList,Image, Modal} from 'react-native';
 import { globalStyles } from "../styles/global";
 import { useState } from "react";
 import  Card from '../shared/card'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/Entypo'
+import MyIcon from 'react-native-vector-icons/AntDesign'
+import Download from "../shared/download";
 
 
 export default function Skills({ navigation }) {
@@ -21,8 +23,34 @@ export default function Skills({ navigation }) {
         {skill: 'Mongo' , image:three ,key: '5'},
         {skill: 'Excel' , image: three,key: '6'},
         ])
+
+    const [open , setOpen] = useState(false)
+
 return (
 <View style={globalStyles.cardcontainer}>
+
+<Modal visible={open} animationType="slide">
+<View style={globalStyles.modal}>
+    <MyIcon
+    name= "closecircle"
+    color='black'
+    size ={15}
+    onPress ={()=>setOpen(false)} 
+    style={{...globalStyles.openModal, ...globalStyles.closeModal}}/>
+    <Text style={{...globalStyles.text , ...globalStyles.modalText}}>Download My Resume!</Text>
+    <Download/>
+</View>
+</Modal>
+
+<Icon
+    name= "download"
+    size ={15}
+    color='black'
+    onPress ={()=>setOpen(true)} 
+    style={globalStyles.openModal}/>
+  
+
+
 <FlatList 
     data={skill}
     renderItem={({item})=>(

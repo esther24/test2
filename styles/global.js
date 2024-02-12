@@ -106,5 +106,26 @@ export const globalStyles = StyleSheet.create({
       marginHorizontal:55,
 
     },
-  
+    modal:{
+      flex:1,
+      borderRadius:30,
+
+    },
+    openModal:{
+      marginTop:30,
+      marginBottom:10,
+      borderRadius:15,
+      padding:15,
+      borderColor: 'purple',
+      borderWidth:1,
+      alignSelf:'center'
+    },
+  closeModal:{
+    marginTop:20,
+    marginBottom:0,
+  },
+  modalText:{
+    marginTop:10,
+    textAlign:'center'
+  }
     });

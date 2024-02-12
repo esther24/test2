@@ -1,9 +1,11 @@
 import 'react-native-gesture-handler';
-import React, { useRef } from "react";
+import React from "react";
 import Home from './screens/home';
 
+//icons
 import Icon from 'react-native-vector-icons/Entypo'
 import MyIcon from 'react-native-vector-icons/Ionicons'
+
 //screens
 import Project from './screens/projects'
 import About from './screens/about'
@@ -17,7 +19,8 @@ import Skills from './screens/skills';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer , useNavigation , DrawerActions, StackActions ,NavigationActions} from '@react-navigation/native';
 import { createNativeStackNavigator , CommonActions} from '@react-navigation/native-stack';
-import { SearchBar } from 'react-native-screens';
+
+//to ignore warnings
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
